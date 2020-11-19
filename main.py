@@ -1,8 +1,8 @@
 import numpy as np
-import pandas as pd
 from PIL import Image
 from numpy.core._multiarray_umath import ndarray  # оно само, я его не добавлял
 import os
+from matplotlib import pyplot as plt
 
 
 path = input('Введите путь: ')
@@ -23,11 +23,12 @@ if path:
             img = Image.fromarray(arr3)
             img.save('Lena_thresholded.png')
             #print(round(arr3.min(), 3), round(arr3.max(), 3), round(arr3.mean(), 3), arr3.shape)
-            print(img.histogram())
+            print(img.histogram())  # гистограмма от PIL
+            #plt.hist(img) # вроде гистограмма так должна выглядеть
+            #plt.xlabel('Яркость')
+            #plt.ylabel('Частота')
+            #plt.show()
         else:
             print('Неверное расширение файла')
     else:
         print('Файл не найден')
-
-
-
